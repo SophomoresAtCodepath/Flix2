@@ -11,17 +11,25 @@ import AlamofireImage
 import MBProgressHUD
 
 class NowPlayingViewController: UIViewController, UITableViewDataSource {
-
+    
     @IBOutlet weak var tableView: UITableView!
     
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     
+    @IBOutlet weak var searchBar: UISearchBar!
     
+    let data = ["movies"]
+    
+    var filteredData: [String]!
     var movies: [[String: Any]] = []
     var refreshControl: UIRefreshControl!
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        //search bar stuff
+        searchBar.delegate = self as? UISearchBarDelegate
+        filteredData = data
         
         //progress HUD
         MBProgressHUD.showAdded(to: self.view, animated: true)
@@ -41,7 +49,7 @@ class NowPlayingViewController: UIViewController, UITableViewDataSource {
         MBProgressHUD.hide(for: self.view, animated: true)
         
     }
-
+    
     @objc func didPullToRefresh(_ refreshControl: UIRefreshControl) {
         fetchMovies()
     }
@@ -64,20 +72,32 @@ class NowPlayingViewController: UIViewController, UITableViewDataSource {
                 for movie in movies {
                     let title = movie["title"] as! String
                     print(title)
- 
+                    
                 }
             }
         }
+        
+        //network error
+        let alertController = UIAlertController(title: "Cannot Get Movies", message: "The internet connection appears to be offline.", preferredStyle: .alert)
+        let cancelAction = UIAlertAction(title: "Try Again", style: .cancel) {
+            (action) in
+        }
+        
+        alertController.addAction(cancelAction)
+        
+        present(alertController, animated: true) {
+            self.fetchMovies()
+        }
+        
         task.resume()
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return movies.count
     }
+    
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "MovieCell", for: indexPath) as! MovieCell
-        
-        
         let movie = movies[indexPath.row]
         let title = movie["title"] as! String
         let overview = movie["overview"] as! String
@@ -90,7 +110,19 @@ class NowPlayingViewController: UIViewController, UITableViewDataSource {
         let posterURL = URL(string: baseURLString + posterPathString)!
         cell.posterImageView.af_setImage(withURL: posterURL)
         
+        //search bar
+        //cell.textLabel?.text = filteredData[indexPath.row] //fatal error
+        
         return cell
+    }
+    
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        filteredData = searchText.isEmpty ? data: data.filter {
+            (item: String) -> Bool in
+            return item.range(of: searchText, options: .caseInsensitive, range: nil, locale: nil) != nil
+            
+        }
+        tableView.reloadData()
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -100,16 +132,14 @@ class NowPlayingViewController: UIViewController, UITableViewDataSource {
             let detailViewController = segue.destination as! DetailViewController
             detailViewController.movie = movie
         }
-        
     }
-    
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
     
-
-  
-
+    
+    
+    
 }

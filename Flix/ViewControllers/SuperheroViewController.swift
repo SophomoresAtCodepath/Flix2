@@ -29,7 +29,6 @@ class SuperheroViewController: UIViewController, UICollectionViewDataSource {
         layout.itemSize = CGSize(width: width, height: width * 3 / 2)
     
         fetchMovies()
-        
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
@@ -70,6 +69,15 @@ class SuperheroViewController: UIViewController, UICollectionViewDataSource {
             }
         }
         task.resume()
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        let cell = sender as! UICollectionViewCell
+        if let indexPath = collectionView.indexPath(for: cell) {
+            let movie = movies[indexPath.item]
+            let detailViewController = segue.destination as! DetailViewController
+            detailViewController.movie = movie
+        }
     }
     
     
