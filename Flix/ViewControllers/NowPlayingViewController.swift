@@ -27,10 +27,12 @@ class NowPlayingViewController: UIViewController, UITableViewDataSource {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        /*
         //search bar stuff
         searchBar.delegate = self as? UISearchBarDelegate
         filteredData = data
-        
+        */
+ 
         //progress HUD
         MBProgressHUD.showAdded(to: self.view, animated: true)
         
@@ -58,36 +60,38 @@ class NowPlayingViewController: UIViewController, UITableViewDataSource {
         let url = URL(string: "https://api.themoviedb.org/3/movie/now_playing?api_key=a07e22bc18f5cb106bfe4cc1f83ad8ed")!
         let request = URLRequest(url: url, cachePolicy: .reloadIgnoringLocalCacheData, timeoutInterval: 10)
         let session = URLSession(configuration: .default, delegate: nil, delegateQueue: OperationQueue.main)
+        
         let task = session.dataTask(with: request) { (data, response , error ) in
             // This will run when the network request returns
             if let error = error {
                 print(error.localizedDescription)
-            } else if let data = data {
-                let dataDictionary = try! JSONSerialization.jsonObject(with: data, options: []) as! [String: Any]
-                print(dataDictionary)
-                let movies = dataDictionary["results"] as! [[String: Any]]
-                self.movies = movies
-                self.tableView.reloadData()
-                self.refreshControl.endRefreshing()
-                for movie in movies {
-                    let title = movie["title"] as! String
-                    print(title)
-                    
+                /*
+                let alertController = UIAlertController(title: "Cannot Get Movies", message: "The internet connection appears to be offline.", preferredStyle: .alert)
+                let cancelAction = UIAlertAction(title: "Try Again", style: .cancel) {
+                    (action) in
+                    alertController.addAction(cancelAction)
+                    present(alertController, animated: true)
+                 */
+                }
+                else if let data = data {
+                    let dataDictionary = try! JSONSerialization.jsonObject(with: data, options: []) as! [String: Any]
+                    print(dataDictionary)
+                    let movies = dataDictionary["results"] as! [[String: Any]]
+                    self.movies = movies
+                    self.tableView.reloadData()
+                    self.refreshControl.endRefreshing()
+                    for movie in movies {
+                        let title = movie["title"] as! String
+                        print(title)
+                    }
                 }
             }
-        }
-        
-        //network error
-        let alertController = UIAlertController(title: "Cannot Get Movies", message: "The internet connection appears to be offline.", preferredStyle: .alert)
-        let cancelAction = UIAlertAction(title: "Try Again", style: .cancel) {
-            (action) in
-        }
-        
-        alertController.addAction(cancelAction)
-        
-        present(alertController, animated: true) {
+            /*
+            //network error
+            alertController.addAction(cancelAction)
+            present(alertController, animated: true)
             self.fetchMovies()
-        }
+            */
         
         task.resume()
     }
@@ -116,6 +120,7 @@ class NowPlayingViewController: UIViewController, UITableViewDataSource {
         return cell
     }
     
+    /*
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
         filteredData = searchText.isEmpty ? data: data.filter {
             (item: String) -> Bool in
@@ -124,6 +129,7 @@ class NowPlayingViewController: UIViewController, UITableViewDataSource {
         }
         tableView.reloadData()
     }
+    */
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         let cell = sender as! UITableViewCell
