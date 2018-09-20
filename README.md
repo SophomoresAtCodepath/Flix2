@@ -121,7 +121,7 @@ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 See the License for the specific language governing permissions and
 limitations under the License.
 
-# Lab 3 - *Flix*
+# Lab 3 - Flix
 
 **Flix** is a movies app displaying box office and top rental DVDs using [The Movie Database API](http://docs.themoviedb.apiary.io/#).
 
@@ -132,8 +132,8 @@ Time spent: **X** hours spent in total
 The following **required** user stories are complete:
 
 - The following screens use AutoLayout to adapt to various orientations and screen sizes
-- [ ] Movie feed view (+3pt)
-- [ ] Detail view (+2pt)
+- [x] Movie feed view (+3pt)
+- [x] Detail view (+2pt)
 
 The following **stretch** user stories are implemented:
 
@@ -142,12 +142,14 @@ The following **stretch** user stories are implemented:
 
 The following **additional** user stories are implemented:
 
-- [ ] List anything else that you can get done to improve the app functionality! (+1-3pts)
+- [x] List anything else that you can get done to improve the app functionality! (+1-3pts)
+1. Implement more practical constraint placements
 
 Please list two areas of the assignment you'd like to **discuss further with your peers** during the next class (examples include better ways to implement something, how to extend your app in certain ways, etc):
 
-1.
-2.
+1. How to differentiate the different type of constraints and when/where to use them.
+2. What are the ideal constraints to use in certain places?
+
 
 ## Video Walkthrough
 
@@ -163,7 +165,7 @@ Describe any challenges encountered while building the app.
 
 ## License
 
-Copyright [yyyy] [name of copyright owner]
+Copyright 2018 Emanuel Donie Ypon
 
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
