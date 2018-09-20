@@ -6,6 +6,9 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
+        <capability name="Alignment constraints with different attributes" minToolsVersion="5.1"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+        <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -18,9 +21,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="CcP-NQ-Nez">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="CcP-NQ-Nez">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <activityIndicatorView key="tableFooterView" hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="whiteLarge" id="9X5-Qr-u5r">
                                     <rect key="frame" x="0.0" y="248" width="375" height="37"/>
@@ -28,34 +30,49 @@
                                     <color key="color" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </activityIndicatorView>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="MovieCell" rowHeight="220" id="c9e-KJ-UDS" customClass="MovieCell" customModule="Flix" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="MovieCell" rowHeight="220" id="c9e-KJ-UDS" customClass="MovieCell" customModule="Flix" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="375" height="220"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="c9e-KJ-UDS" id="Wti-GI-ehf">
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="219.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="VBx-u7-7BJ">
-                                                    <rect key="frame" x="15" y="12" width="109" height="178"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="VBx-u7-7BJ">
+                                                    <rect key="frame" x="8" y="8" width="111" height="203.5"/>
                                                     <color key="backgroundColor" red="0.047812174069999998" green="1" blue="0.2192377801" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="111" id="6KS-qL-2xn"/>
+                                                    </constraints>
                                                 </imageView>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Crazy Rich Asians" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="l2E-23-yhb">
-                                                    <rect key="frame" x="154" y="12" width="177" height="21"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" ambiguous="YES" text="Crazy Rich Asians" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="l2E-23-yhb">
+                                                    <rect key="frame" x="127" y="8" width="169" height="24"/>
                                                     <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aAL-8v-U3Y">
-                                                    <rect key="frame" x="154" y="41" width="206" height="159"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="749" ambiguous="YES" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aAL-8v-U3Y">
+                                                    <rect key="frame" x="126" y="45.5" width="234" height="142.5"/>
                                                     <string key="text">An American-born Chinese economics professor accompanies her boyfriend to Singapore for his best friend's wedding, only to get thrust into the lives of Asia's rich and famous.</string>
                                                     <fontDescription key="fontDescription" type="system" weight="thin" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
+                                            <constraints>
+                                                <constraint firstItem="aAL-8v-U3Y" firstAttribute="top" secondItem="l2E-23-yhb" secondAttribute="bottom" constant="8" id="IXW-2p-VMh"/>
+                                                <constraint firstAttribute="bottom" secondItem="aAL-8v-U3Y" secondAttribute="bottom" constant="8" id="NUg-8H-eMX"/>
+                                                <constraint firstAttribute="trailing" secondItem="l2E-23-yhb" secondAttribute="trailing" constant="79" id="Sj4-mi-A45"/>
+                                                <constraint firstItem="aAL-8v-U3Y" firstAttribute="leading" secondItem="VBx-u7-7BJ" secondAttribute="trailing" constant="7" id="TQo-Oa-tHf"/>
+                                                <constraint firstAttribute="bottomMargin" secondItem="VBx-u7-7BJ" secondAttribute="bottom" constant="21" id="VKd-AV-vkF"/>
+                                                <constraint firstAttribute="trailing" secondItem="aAL-8v-U3Y" secondAttribute="trailing" constant="15" id="Xag-oR-ZbR"/>
+                                                <constraint firstItem="l2E-23-yhb" firstAttribute="leading" secondItem="VBx-u7-7BJ" secondAttribute="trailing" constant="8" symbolic="YES" id="bbl-0I-BFf"/>
+                                                <constraint firstItem="VBx-u7-7BJ" firstAttribute="bottom" secondItem="aAL-8v-U3Y" secondAttribute="bottom" id="itb-Zy-uMj"/>
+                                                <constraint firstItem="VBx-u7-7BJ" firstAttribute="top" secondItem="Wti-GI-ehf" secondAttribute="topMargin" constant="-3" id="kJI-g4-e8f"/>
+                                                <constraint firstItem="VBx-u7-7BJ" firstAttribute="top" secondItem="l2E-23-yhb" secondAttribute="top" id="uJt-BN-cwY"/>
+                                                <constraint firstItem="VBx-u7-7BJ" firstAttribute="leading" secondItem="Wti-GI-ehf" secondAttribute="leading" constant="8" id="uiX-Ve-D55"/>
+                                                <constraint firstItem="aAL-8v-U3Y" firstAttribute="leading" secondItem="VBx-u7-7BJ" secondAttribute="trailing" constant="7" id="wi0-1R-iDA"/>
+                                                <constraint firstItem="VBx-u7-7BJ" firstAttribute="leading" secondItem="Wti-GI-ehf" secondAttribute="leading" constant="8" id="ytu-1N-iXB"/>
+                                            </constraints>
                                         </tableViewCellContentView>
                                         <connections>
                                             <outlet property="overviewLabel" destination="aAL-8v-U3Y" id="MDo-c7-Mql"/>
@@ -73,6 +90,12 @@
                             </searchBar>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="CcP-NQ-Nez" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="MCT-VN-GmF"/>
+                            <constraint firstItem="CcP-NQ-Nez" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="WXt-HC-oRr"/>
+                            <constraint firstItem="CcP-NQ-Nez" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="dnF-GC-zI2"/>
+                            <constraint firstAttribute="bottom" secondItem="CcP-NQ-Nez" secondAttribute="bottom" id="f86-98-pXm"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <navigationItem key="navigationItem" title="Movies" id="10A-Cj-gdg"/>
@@ -94,30 +117,32 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="PZY-cS-bRc">
-                                <rect key="frame" x="0.0" y="64" width="375" height="271"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="PZY-cS-bRc">
+                                <rect key="frame" x="0.0" y="64" width="375" height="222.5"/>
                             </imageView>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ryl-75-sTs">
-                                <rect key="frame" x="31" y="245" width="123" height="177"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="ryl-75-sTs">
+                                <rect key="frame" x="16" y="196.5" width="110" height="180"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="110" id="33X-8v-5yE"/>
+                                    <constraint firstAttribute="height" constant="180" id="Nnv-kH-Fcu"/>
+                                </constraints>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Crazy Rich Asians" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kVN-wr-kdc">
-                                <rect key="frame" x="166" y="343" width="193" height="21"/>
+                                <rect key="frame" x="134" y="294" width="193" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Release Date" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ntf-Zc-MTY">
-                                <rect key="frame" x="166" y="372" width="193" height="21"/>
+                                <rect key="frame" x="134" y="323" width="193" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="OverView" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5bk-kX-H5m">
-                                <rect key="frame" x="31" y="430" width="328" height="217"/>
+                                <rect key="frame" x="16" y="384" width="343" height="217"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
@@ -125,6 +150,14 @@
                             </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="ryl-75-sTs" firstAttribute="centerY" secondItem="PZY-cS-bRc" secondAttribute="bottom" id="EFO-hP-bqL"/>
+                            <constraint firstItem="PZY-cS-bRc" firstAttribute="trailing" secondItem="u8x-Vf-GxK" secondAttribute="trailing" id="IIn-Sq-QfV"/>
+                            <constraint firstItem="PZY-cS-bRc" firstAttribute="height" secondItem="aDx-FX-5wc" secondAttribute="height" multiplier="1:3" id="J1S-Zr-Cq6"/>
+                            <constraint firstItem="PZY-cS-bRc" firstAttribute="top" secondItem="u8x-Vf-GxK" secondAttribute="top" id="Mgc-d1-0gL"/>
+                            <constraint firstItem="PZY-cS-bRc" firstAttribute="leading" secondItem="u8x-Vf-GxK" secondAttribute="leading" id="rla-0h-skz"/>
+                            <constraint firstItem="ryl-75-sTs" firstAttribute="leading" secondItem="u8x-Vf-GxK" secondAttribute="leading" constant="16" id="wqz-YF-ejc"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="u8x-Vf-GxK"/>
                     </view>
                     <connections>
@@ -211,6 +244,7 @@
                                         </view>
                                         <connections>
                                             <outlet property="posterImageView" destination="OKT-h8-Axw" id="vvN-lm-0aP"/>
+                                            <segue destination="bTx-qr-oWz" kind="show" id="rPD-1c-llN"/>
                                         </connections>
                                     </collectionViewCell>
                                 </cells>
@@ -222,7 +256,6 @@
                     <navigationItem key="navigationItem" title="Movies" id="52w-x3-pfY"/>
                     <connections>
                         <outlet property="collectionView" destination="nLg-kO-pVl" id="5GN-H5-YWV"/>
-                        <segue destination="bTx-qr-oWz" kind="show" id="DKf-uk-YIg"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="k7m-WZ-HFH" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -254,6 +287,6 @@
         <image name="superhero_tabbar_item" width="21" height="23"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="DKf-uk-YIg"/>
+        <segue reference="joP-as-Sbe"/>
     </inferredMetricsTieBreakers>
 </document>
