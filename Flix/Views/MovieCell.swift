@@ -17,7 +17,25 @@ class MovieCell: UITableViewCell {
     
     @IBOutlet weak var posterImageView: UIImageView!
     
+    /*
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        
+        let cell = tableView.dequeueReusableCell(withIdentifier: "MovieCell", for: indexPath) as! MovieCell
+        
+        cell.movie = movies[indexPath.row]
+        
+        return cell
+    }
+    */
     
+    var movie: Movie!{
+        didSet {
+            titleLabel.text = movie.title
+            overviewLabel.text = movie.overview
+            
+            posterImageView?.af_setImage(withURL: movie.posterURL)
+        }
+    }
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
