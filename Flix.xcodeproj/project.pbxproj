@@ -22,6 +22,7 @@
 		3C9FB90B214ADAB8008B3279 /* PosterCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C9FB90A214ADAB8008B3279 /* PosterCell.swift */; };
 		3C9FB90D214ADB18008B3279 /* SuperheroViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C9FB90C214ADB18008B3279 /* SuperheroViewController.swift */; };
 		3CC96E4B2149BB0A0002FBFF /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CC96E4A2149BB0A0002FBFF /* DetailViewController.swift */; };
+		3CFCBC6A2196549D00343F92 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CFCBC692196549D00343F92 /* LoginViewController.swift */; };
 		B3A0DD2B3D699D6039AB7757 /* Pods_FlixUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C8B36EFDC6765363A1BCB17E /* Pods_FlixUITests.framework */; };
 /* End PBXBuildFile section */
 
@@ -64,6 +65,7 @@
 		3C9FB90A214ADAB8008B3279 /* PosterCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PosterCell.swift; sourceTree = "<group>"; };
 		3C9FB90C214ADB18008B3279 /* SuperheroViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SuperheroViewController.swift; sourceTree = "<group>"; };
 		3CC96E4A2149BB0A0002FBFF /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
+		3CFCBC692196549D00343F92 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		41DA12D49BF05E5CE82BD3F4 /* Pods-FlixTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FlixTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-FlixTests/Pods-FlixTests.release.xcconfig"; sourceTree = "<group>"; };
 		7977214B98F104B453A29D88 /* Pods-Flix.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Flix.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Flix/Pods-Flix.debug.xcconfig"; sourceTree = "<group>"; };
 		84F4C5DF2D22EE14769A1D5C /* Pods_FlixTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_FlixTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -171,6 +173,7 @@
 				3C39717B213DF8B900358E89 /* NowPlayingViewController.swift */,
 				3CC96E4A2149BB0A0002FBFF /* DetailViewController.swift */,
 				3C9FB90C214ADB18008B3279 /* SuperheroViewController.swift */,
+				3CFCBC692196549D00343F92 /* LoginViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -347,13 +350,17 @@
 				"${SRCROOT}/Pods/Target Support Files/Pods-Flix/Pods-Flix-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
 				"${BUILT_PRODUCTS_DIR}/AlamofireImage/AlamofireImage.framework",
+				"${BUILT_PRODUCTS_DIR}/Bolts/Bolts.framework",
 				"${BUILT_PRODUCTS_DIR}/MBProgressHUD/MBProgressHUD.framework",
+				"${BUILT_PRODUCTS_DIR}/Parse/Parse.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/AlamofireImage.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Bolts.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MBProgressHUD.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Parse.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -421,6 +428,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3CFCBC6A2196549D00343F92 /* LoginViewController.swift in Sources */,
 				3C39717C213DF8B900358E89 /* NowPlayingViewController.swift in Sources */,
 				3C9FB90B214ADAB8008B3279 /* PosterCell.swift in Sources */,
 				3C9FB90D214ADB18008B3279 /* SuperheroViewController.swift in Sources */,
